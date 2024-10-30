@@ -69,7 +69,7 @@
                                 <input id="password"
                                     type="password"
                                     class="form-control @error('password') is-invalid
-                                        
+                                
                                     @enderror"
                                     name="password"
                                     tabindex="2"
@@ -92,7 +92,6 @@
                                 Don't have an account? <a href="{{ route('register') }}">Create new one</a>
                             </div>
                         </form>
-
                         <div class="text-small mt-5 text-center">
                             Copyright &copy; IDN Borading School. IDN 💙 canteen
                             <div class="mt-2">
