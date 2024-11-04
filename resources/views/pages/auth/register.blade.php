@@ -31,8 +31,8 @@
                         type="email"
                         class="form-control"
                         name="email"
-                        value="{{ old('email') }}"> 
-                        
+                        value="{{ old('email') }}">
+
                     <div class="invalid-feedback">
                     </div>
                 </div>
@@ -41,15 +41,19 @@
                             class="d-block">Password</label>
                         <input id="password"
                             type="password"
-                            class="form-control pwstrength @error('password') is-invalid
+                            class="form-control pwstrength
+                            @error('password') is-invalid
+                            
                             @enderror"
                             data-indicator="pwindicator"
                             name="password">
-                        @error('password')
-                                <div class="invalid-feedback">
-                                    {{ $message}}
-                                </div>
-                        @enderror
+
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+
 
                         <div id="pwindicator"
                             class="pwindicator">

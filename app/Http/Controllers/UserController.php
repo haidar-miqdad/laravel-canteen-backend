@@ -56,19 +56,16 @@ class UserController extends Controller
 
     public function update(Request $request, User $user){
 
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'role' => 'required',
-        ]);
+        // $data = ([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'role' => $request->role,
+        //     'phone' => $request->phone,
+        // ]);
 
-        $data = ([
-            'name' => $request->name,
-            'email' => $request->email,
-            'role' => $request->role,
-            'phone' => $request->phone,
-        ]);
-
+        // sama aja sama yg di atas
+        $data = $request->except('password');
+        
         if($request->password){
             $data['password'] = Hash::make($request->password);
         }
@@ -80,7 +77,7 @@ class UserController extends Controller
     }
 
     public function destroy(User $user){
-        
+
         $user->delete();
 
         return redirect()->route('user.index')->with('success', 'User deleted successfully.');

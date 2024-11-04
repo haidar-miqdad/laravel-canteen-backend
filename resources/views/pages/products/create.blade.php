@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit User')
+@section('title', 'create product')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -22,23 +22,22 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Edit User </h1>
+                <h1>Create Product </h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#"></a></div>
-                    <div class="breadcrumb-item">Edit User </div>
+                    <div class="breadcrumb-item">Create Product </div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Edit User </h2>
-                <p class="section-lead">We provide Edit User input fields, such as date picker, color picker, and so on.</p>
+                <h2 class="section-title">Create Product </h2>
+                <p class="section-lead">We provide Create Product input fields, such as date picker, color picker, and so on.</p>
 
                 <div class="row">
                     <div class="col-12 ">
-                        <form action="{{ route('user.update', $user->id) }}" method="POST">
+                        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
                             <div class="card">
                                 <div class="card-header">
                                     <h4>Input Text</h4>
@@ -46,70 +45,57 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>name</label>
-                                        <input type="text" name="name" value="{{ $user->name }}"
+                                        <input type="text" name="name"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>email</label>
-                                        <input type="email" name="email" value="{{ $user->email }}"
+                                        <label>price</label>
+                                        <input type="number" name="price"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone Number </label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-phone"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" name="phone" value="{{ $user->phone }}"
-                                                class="form-control phone-number">
-                                        </div>
+                                        <label>stock</label>
+                                        <input type="number" name="stock"
+                                            class="form-control">
                                     </div>
+
                                     <div class="form-group">
-                                        <label>Password Strength</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-lock"></i>
-                                                </div>
-                                            </div>
-                                            <input type="password" name="password"
-                                                class="form-control pwstrength"
-                                                data-indicator="pwindicator">
-                                        </div>
-                                        <div id="pwindicator"
-                                            class="pwindicator">
-                                            <div class="bar"></div>
-                                            <div class="label"></div>
-                                        </div>
+                                        <label>Description</label>
+                                        <input type="text" name="description"
+                                            class="form-control">
                                     </div>
-                                    <div class="section-title">Role</div>
+
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" name="image"
+                                            class="form-control">
+                                    </div>
+
+                                    <div class="section-title">Category</div>
                                     <div class="form-group">
                                         <label class="form-label"></label>
                                         <div class="selectgroup w-100">
                                             <label class="selectgroup-item">
                                                 <input type="radio"
-                                                    name="role"
-                                                    value="admin"
+                                                    name="category"
+                                                    value="food"
                                                     class="selectgroup-input"
-                                                    @if($user->role == 'admin') checked @endif>
-                                                <span class="selectgroup-button">Admin</span>
+                                                    checked="">
+                                                <span class="selectgroup-button">Food</span>
                                             </label>
                                             <label class="selectgroup-item">
                                                 <input type="radio"
-                                                    name="role"
-                                                    value="staff"
-                                                    class="selectgroup-input" @if($user->role == 'staff') checked @endif>
-                                                <span class="selectgroup-button">Staff</span>
+                                                    name="category"
+                                                    value="drink"
+                                                    class="selectgroup-input">
+                                                <span class="selectgroup-button">drink</span>
                                             </label>
                                             <label class="selectgroup-item">
                                                 <input type="radio"
-                                                    name="role"
-                                                    value="user"
-                                                    class="selectgroup-input"
-                                                    @if($user->role == 'user') checked @endif>
-                                                <span class="selectgroup-button">User</span>
+                                                    name="category"
+                                                    value="snack"
+                                                    class="selectgroup-input">
+                                                <span class="selectgroup-button">snack</span>
                                             </label>
 
                                         </div>
