@@ -69,7 +69,7 @@
                                 <input id="password"
                                     type="password"
                                     class="form-control @error('password') is-invalid
-                                
+
                                     @enderror"
                                     name="password"
                                     tabindex="2"
@@ -89,7 +89,7 @@
                             </div>
 
                             <div class="mt-5 text-center">
-                                Don't have an account? <a href="{{ route('register') }}">Create new one</a>
+                                Don't have an Ageng? <a href="{{ route('register') }}">Create new one</a>
                             </div>
                         </form>
                         <div class="text-small mt-5 text-center">

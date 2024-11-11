@@ -56,22 +56,19 @@ class UserController extends Controller
 
     public function update(Request $request, User $user){
 
-        // $data = ([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'role' => $request->role,
-        //     'phone' => $request->phone,
-        // ]);
+        $data = ([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => $request->role,
+            'phone' => $request->phone,
+        ]);
 
         // sama aja sama yg di atas
-        $data = $request->except('password');
-        
+        // $data = $request->except('password');
         if($request->password){
             $data['password'] = Hash::make($request->password);
         }
-
         $user->update($data);
-
         return redirect()->route('user.index')->with('success', 'User updated successfully.');
 
     }
