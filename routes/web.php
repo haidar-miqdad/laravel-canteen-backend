@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('pages.auth.login');
 });
 
-Route::get('home', function () {
+Route::middleware(['auth'])->get('home', function(){
     return view('pages.dashboard');
 });
 

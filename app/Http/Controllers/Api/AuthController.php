@@ -12,11 +12,11 @@ class AuthController extends Controller
 
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ]);
 
         // check if email ada di database
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->first(); //mangondi@idn.com
 
         // kalau ga dapat emailnya bakal di excute yg ini
         if(!$user){

@@ -30,7 +30,6 @@ class ProductController extends Controller
             'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
         ]);
 
-
         $filename = time() . '.' . $request->image->extension();
         $request->image->storeAs('products', $filename, 'public');
 
@@ -59,7 +58,14 @@ class ProductController extends Controller
 
     }
 
-    public function destroy(Product $product){
+/*************  ✨ Codeium Command ⭐  *************/
+    /**
+     * Remove the specified product from storage.
+     *
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\RedirectResponse
+     */
+/******  f2e6855b-4618-4761-b08e-5cec281f0e97  *******/    public function destroy(Product $product){
 
         $product->delete();
 

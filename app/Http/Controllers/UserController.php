@@ -44,7 +44,7 @@ class UserController extends Controller
         ]);
 
         User::create($data);
-
+        
         return redirect()->route('user.index')->with('success', 'User created successfully.');
 
     }
