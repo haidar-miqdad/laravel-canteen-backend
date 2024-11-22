@@ -13,8 +13,10 @@ class ProductController extends Controller
         $products = Product::all();
 
         return response()->json([
-            'products' => $products,
-            'mesaage' => 'success'
+        
+            'message' => 'success',
+            'product' => $products
+
         ], 200);
 
     }

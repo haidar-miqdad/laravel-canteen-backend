@@ -27,7 +27,7 @@ class ProductController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
+            'image' => 'required|image|mimes:png,jpg,jpeg,webp|max:2048'
         ]);
 
         $filename = time() . '.' . $request->image->extension();
